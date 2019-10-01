@@ -8,7 +8,6 @@ public class SyntaxAnalyzer
     private ArrayList patterns;
 	public SyntaxAnalyzer()
 	{
-
         patterns = new ArrayList();
         this.loadPatterns();
 	}
@@ -16,12 +15,18 @@ public class SyntaxAnalyzer
     // We use regular expressions to determine if the structure of the OP-Code is correct
     public bool isProperSyntax(string line)
     {
-        switch (line)
-        {
-            //case this.patterns
 
-            default:
-                break;
+        MatchCollection matched_expression = null;
+        Regex rg;
+        foreach(string pattern in this.reg_patterns())
+        {
+            rg = new Regex(pattern);
+            matched_expression = rg.Matches(line);
+
+            if(matched_expression.Count > 0)
+            {
+                return true;
+            }
         }
 
         return false;
@@ -43,7 +48,7 @@ public class SyntaxAnalyzer
     public string[] conditional_patterns()
     {
         string and = @"[ ]*[A][N][D][ ]+[R][0-7][ ]*[,][ ]*[R][0-7][ ]*[,][ ]*[R][0-7][ ]*";
-        string or= @"[ ]*[O][R][ ]+[R][0-7][ ]*[,][ ]*[R][0-7][]*[,] [ ]*[R][0-7][ ]*";
+        string or =  @"[ ]*[O][R][ ]+[R][0-7][ ]*[,][ ]*[R][0-7][]*[,] [ ]*[R][0-7][ ]*";
         string xor = @"[ ]*[X][O]R][ ]+[R][0-7][ ]*[,][ ]*[R][0-7][ ]*[,][ ]*[R][0-7][ ]*";
 
         string not = @"[ ]*[N][O][T][ ]+[R][0-7][ ]*[,][ ]*[R][0-7][ ]*";
@@ -55,8 +60,7 @@ public class SyntaxAnalyzer
 
     public string ending_pattern()
     {
-        string retur = @"[ ]*[R][E][T][U][R][N][ ]*";
-        return retur;
+        return @"[ ]*[R][E][T][U][R][N][ ]*";
     }
 
 
@@ -73,5 +77,10 @@ public class SyntaxAnalyzer
         {
             this.patterns.Add(pattern);
         }
+    }
+
+    public ArrayList reg_patterns()
+    {
+        return this.patterns;
     }
 }

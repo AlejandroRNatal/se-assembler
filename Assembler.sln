@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembler", "Assembler\Assembler.csproj", "{0549A661-5364-433F-8B67-376DB9908692}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assembler", "Assembler\Assembler.csproj", "{0549A661-5364-433F-8B67-376DB9908692}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembler.UnitTests", "Assembler.UnitTests\Assembler.UnitTests.csproj", "{3D638343-FA97-4538-A357-CA9873094C69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assembler.UnitTests", "Assembler.UnitTests\Assembler.UnitTests.csproj", "{3D638343-FA97-4538-A357-CA9873094C69}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E6105ED6-A9CD-4ECF-ABE9-E90625CCF5F1}"
+	ProjectSection(SolutionItems) = preProject
+		Test.ASM = Test.ASM
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
